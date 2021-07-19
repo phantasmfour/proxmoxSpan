@@ -25,8 +25,7 @@ if ($phase eq 'pre-start'){
        my  $tapInterface = "tap".$vmid."i1" ;
         # line for creating the Span
         my $spanName = "span".$vmid;
-	# EDIT THE LINE BELOW TO CONFIGURE WHAT VLANs you want to mirror
-    system("ovs-vsctl -- --id=\@p get port $tapInterface     -- --id=\@m create mirror name=$spanName select-all=true select-vlan=[110, 120, 130, 140, 150, 210, 220, 230, 240, 250, 310, 311, 320, 321] output-port=\@p     -- set bridge vmbr0 mirrors=\@m")
+    system("ovs-vsctl -- --id=\@p get port $tapInterface     -- --id=\@m create mirror name=$spanName select-all=true select-vlan=[110,120,130,140,150,210,220,230,240,250,310,311,320,321] output-port=\@p     -- set bridge vmbr0 mirrors=\@m")
 
 }elsif ($phase eq 'pre-stop') {
 
